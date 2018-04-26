@@ -1,0 +1,16 @@
+
+
+.app{
+  background:gold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+  img{
+    width:200px;
+  }
+  .west{
+    color:blue;
+  }
+}
