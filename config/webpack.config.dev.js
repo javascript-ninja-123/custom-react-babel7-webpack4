@@ -6,7 +6,8 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
-//plugin helper
+const GenerateJsonPlugin = require('generate-json-webpack-plugin');
+
 
 
 const VENDOR_LIBS = [
@@ -24,6 +25,10 @@ const VENDOR_LIBS = [
   "ramda",
   "immutable"
 ];
+
+
+
+///testing
 
 
 module.exports = {
@@ -116,6 +121,12 @@ module.exports = {
    ]
  },
  plugins: [
+   new GenerateJsonPlugin(
+     `./login/dev.oktaConfig.json`,
+     {
+        "env":"dev"
+     }
+  ),
   new OptimizeCssAssetsPlugin(),
   new MiniCssExtractPlugin({
     filename:"[name]-[contenthash].css"
