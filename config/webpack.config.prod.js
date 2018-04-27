@@ -11,7 +11,7 @@ const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const GenerateJsonPlugin = require('generate-json-webpack-plugin');
 const MinifyPlugin = require("babel-minify-webpack-plugin");
 const CompressionPlugin = require("compression-webpack-plugin")
-const {BundleAnalyzerPlugin} = require('webpack-bundle-analyzer');
+
 
 
 
@@ -26,9 +26,6 @@ const prodConfig = {
   new MinifyPlugin(),
   new CompressionPlugin({
     algorithm:'gzip'
-  }),
-  new BundleAnalyzerPlugin({
-    generateStatsFile:true
   })
 ],
 mode:"production"
