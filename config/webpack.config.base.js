@@ -1,31 +1,21 @@
 const webpack = require('webpack');
 const path = require('path');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const VENDOR_LIBS = [
-  "lodash",
-  "react",
-  "react-dom",
-  "react-redux",
-  "react-router",
-  "react-router-dom",
-  "react-router-redux",
-  "redux",
-  "redux-form",
-  "redux-observable",
-  "rxjs",
-  "ramda",
-  "immutable"
-];
+
 
 module.exports = {
   entry: {
-    bundle:['@babel/polyfill','./src/index.js'],
-    vendor:VENDOR_LIBS
+    bundle:['@babel/polyfill','./src/index.js']
   },
   output:{
    path: path.join(__dirname, '../build'),
    filename: '[name].[hash].js',
    publicPath:'/'
+ },
+ optimization:{
+   splitChunks:{
+     chunks:'all'
+   }
  },
  resolve: {
    extensions: ['.js', '.jsx']
